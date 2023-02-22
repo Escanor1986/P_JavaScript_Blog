@@ -1,0 +1,19 @@
+{
+  "name": "p_javascript_blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Escanor1986/P_JavaScript_Blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Escanor1986/P_JavaScript_Blog/issues"
+  },
+  "homepage": "https://github.com/Escanor1986/P_JavaScript_Blog#readme"
+}
