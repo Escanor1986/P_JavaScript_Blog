@@ -151,22 +151,42 @@ const createMenuCategories = () => {
   displayMenuCategories(categoriesArr);
 };
 
+// const fetchArticle = async () => {
+//   // Ne pas oublier async / await avec fetch (asynchrone)
+//   try {
+//     // on modifie fetch pour appliquer le tri directement à la récupération des donnés sur l'API
+//     const response = await fetch(
+//       `https://restapi.fr/api/article?sort=createdAt:${sortBy}`
+//     );
+//     articles = await response.json(); // Let articles, déclaré au dessus du code, est assigné ici au moment du fetch
+//     if (!Array.isArray(articles)) {
+//       articles = [articles];
+//     }
+//     createArticles(); // On appel createArticles pour générer l'affichage des articles sur la page
+//     createMenuCategories(); // on appel createMenuCategories pour générer l'affichage du menu par catégorie
+//   } catch (e) {
+//     console.log("e : ", e);
+//   }
+// };
+
 // Gestion de l'appel à l'API et de la Side Bar pour les catégories
 const fetchArticle = async () => {
-  // Ne pas oublier async / await avec fetch (asynchrone)
+  const progressContainer = document.querySelector(".progress-container");
   try {
-    // on modifie fetch pour appliquer le tri directement à la récupération des donnés sur l'API
+    progressContainer.style.display = "flex";
     const response = await fetch(
       `https://restapi.fr/api/article?sort=createdAt:${sortBy}`
     );
-    articles = await response.json(); // Let articles, déclaré au dessus du code, est assigné ici au moment du fetch
+    articles = await response.json();
     if (!Array.isArray(articles)) {
       articles = [articles];
     }
-    createArticles(); // On appel createArticles pour générer l'affichage des articles sur la page
-    createMenuCategories(); // on appel createMenuCategories pour générer l'affichage du menu par catégorie
+    createArticles();
+    createMenuCategories();
   } catch (e) {
     console.log("e : ", e);
+  } finally {
+    progressContainer.style.display = "none";
   }
 };
 
