@@ -1,4 +1,3 @@
-````markdown
 # Mon Projet de Blog en Ligne
 
 Ce projet est un blog en ligne permettant aux utilisateurs de créer, modifier, supprimer, trier et paginer des articles de blog. Il utilise Webpack pour la gestion des modules JavaScript et Sass pour les styles.
@@ -21,14 +20,14 @@ Ce projet est un blog en ligne permettant aux utilisateurs de créer, modifier, 
 1. Clonez ce dépôt sur votre machine locale.
 2. Installez les dépendances en exécutant la commande suivante :
 
-   ```bash
+   ```
    npm install
    ```
-````
+
 
 3. Lancez l'application en mode développement avec la commande :
 
-   ```bash
+   ```
    npm start
    ```
 
