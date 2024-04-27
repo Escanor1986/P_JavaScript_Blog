@@ -56,6 +56,6 @@ Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce proje
 
 Ce projet est sous licence [MIT](LICENSE).
 
-```
+## App Link
 
-```
+[App Link - GitHub Actions](https://escanor1986.github.io/P_JavaScript_Blog/)
