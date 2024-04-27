@@ -5,12 +5,12 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: path.join(__dirname, "src/index.js"),
-    form: path.join(__dirname, "src/form/form.js"),
-    topbar: path.join(__dirname, "src/assets/javascripts/topbar.js"),
+    main: path.resolve(__dirname, "src/index.js"),
+    form: path.resolve(__dirname, "src/form/form.js"),
+    topbar: path.resolve(__dirname, "src/assets/javascripts/topbar.js"),
   },
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
   },
   module: {

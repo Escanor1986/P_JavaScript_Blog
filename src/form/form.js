@@ -28,7 +28,7 @@ initForm();
 
 // Nous remplissons tous les champs de notre formulaire en créant des références
 // et en utilisant les informations récupérées du serveur.
-const fillForm = (article) => {
+const fillForm = article => {
   const author = document.querySelector('input[name="author"]');
   const img = document.querySelector('input[name="img"]');
   const category = document.querySelector('input[name="category"]');
@@ -57,7 +57,7 @@ btnCancel.addEventListener("click", async () => {
 // Pas PUT car nous ne remplaçons pas la ressource distante (nous gardons
 // la date de création et l’id).
 
-form.addEventListener("submit", async (event) => {
+form.addEventListener("submit", async event => {
   event.preventDefault();
   const formData = new FormData(form);
 
@@ -91,14 +91,14 @@ form.addEventListener("submit", async (event) => {
             "Content-Type": "application/json",
           },
         });
-      }
-      const body = await response.json();
-      console.log(body);
-      // Donc en gros, si l'on a bien une requête validée
-      if (response.status < 299) {
-        // à noter ici qu'avec ".assign", si on ne lui passe pas une url complète avec https...
-        // il va ajouter la portion en paramètre à l'url existante pour pouvoir rediriger
-        window.location.assign("./index.html");
+        const body = await response.json();
+        console.log(body);
+        // Donc en gros, si l'on a bien une requête validée
+        if (response.status < 299) {
+          // à noter ici qu'avec ".assign", si on ne lui passe pas une url complète avec https...
+          // il va ajouter la portion en paramètre à l'url existante pour pouvoir rediriger
+          window.location.assign("./index.html");
+        }
       }
     } catch (e) {
       console.log("e : ", e);
@@ -107,7 +107,7 @@ form.addEventListener("submit", async (event) => {
 });
 
 // Fonction pour la validation du formulaire + gestion d'erreurs
-const formIsValid = (article) => {
+const formIsValid = article => {
   // Pour ne pas avoir plusieurs fois l'affichage du message d'erreur, nous réinitialisons un tableau vide à chaque clic !
   errors = [];
   if (
@@ -123,7 +123,7 @@ const formIsValid = (article) => {
   }
   if (errors.length) {
     let errorHTML = "";
-    errors.forEach((e) => {
+    errors.forEach(e => {
       errorHTML += `<li>${e}</li>`;
     });
     errorElement.innerHTML = errorHTML;

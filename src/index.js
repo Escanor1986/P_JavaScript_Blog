@@ -21,7 +21,7 @@ selectElement.addEventListener("change", () => {
 // Gestion de la création de l'article et de l'affichage de ceux contenus dans l'API
 const createArticles = () => {
   const articlesDOM = articles
-    .filter((article) => {
+    .filter(article => {
       if (filter) {
         // si filter est défini on retourne la catégorie sélectionnée
         return article.category === filter;
@@ -29,7 +29,7 @@ const createArticles = () => {
         return true; // On retourne l'intégralié des articles dans ce cas car filter n'existe pas
       }
     })
-    .map((article) => {
+    .map(article => {
       const articleDOM = document.createElement("div");
       articleDOM.classList.add("article");
       articleDOM.innerHTML = `
@@ -63,17 +63,17 @@ const createArticles = () => {
   const editButtons = articleContainerElement.querySelectorAll(".btn-primary");
 
   // Gestion de l'édition de l'article pour modification
-  editButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
+  editButtons.forEach(button => {
+    button.addEventListener("click", event => {
       const target = event.target;
       const articleId = target.dataset.id;
-      window.location.assign(`/form.html?id=${articleId}`);
+      window.location.assign(`./form.html?id=${articleId}`);
     });
   });
 
   // Gestion de la suppression de l'article
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", async (event) => {
+  deleteButtons.forEach(button => {
+    button.addEventListener("click", async event => {
       const result = await openModal(
         "Etes vous sûr de vouloir supprimer votre article ?"
       );
@@ -99,8 +99,8 @@ const createArticles = () => {
 };
 
 // Gestion de l'affichage des catégories
-const displayMenuCategories = (categoriesArr) => {
-  const liElements = categoriesArr.map((categoryElem) => {
+const displayMenuCategories = categoriesArr => {
+  const liElements = categoriesArr.map(categoryElem => {
     const li = document.createElement("li");
     li.innerHTML = `${categoryElem[0]} ( <strong>${categoryElem[1]}</strong> )`;
     if (categoryElem[0] === filter) {
@@ -117,7 +117,7 @@ const displayMenuCategories = (categoriesArr) => {
       } else {
         // Si la catégorie n'est pas sélectionnée, on lui donne la classe active
         filter = categoryElem[0];
-        liElements.forEach((li) => {
+        liElements.forEach(li => {
           li.classList.remove("active");
         });
         li.classList.add("active");
@@ -144,7 +144,7 @@ const createMenuCategories = () => {
   }, {});
 
   const categoriesArr = Object.keys(categories)
-    .map((category) => {
+    .map(category => {
       return [category, categories[category]]; // On itère avec map pour récupérer un tableau avec [Category, (nombre d'objet dans la category)]
     })
     .sort((c1, c2) => c1[0].localeCompare(c2[0])); // Ici on utilise la méthode sort avec la fonction localeCompare pur tirer les catégories alphabétiquement

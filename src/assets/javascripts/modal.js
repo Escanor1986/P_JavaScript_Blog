@@ -13,23 +13,23 @@ const createCalc = () => {
   });
 };
 
-// Getsion de la création de la modal
-const createModal = (question) => {
+// Gestion de la création de la modal
+const createModal = question => {
   modal = document.createElement("div");
   modal.classList.add("modal");
   modal.innerHTML = `
     <p>${question}</p>
     `;
-  const cancel = document.createElement("button");
+  cancel = document.createElement("button"); // Déclaration sans 'let' ou 'const'
   cancel.innerText = "Annuler";
   cancel.classList.add("btn", "btn-secondary");
-  const confirm = document.createElement("button");
+  confirm = document.createElement("button"); // Déclaration sans 'let' ou 'const'
   confirm.classList.add("btn", "btn-primary");
   confirm.innerText = "Confirmer";
 
   // Nous empêchons la propagation de l’événement pour
   // que la modale ne se ferme pas lorsque l’on clique dessus :
-  modal.addEventListener("click", (event) => {
+  modal.addEventListener("click", event => {
     event.stopPropagation();
   });
   modal.append(cancel, confirm);
